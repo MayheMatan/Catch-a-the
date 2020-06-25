@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: "h h h" "g g g" "f s l";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 0.5fr 10fr 2fr
+}
+
+.header {
+    grid-area: h;
+    align-self: center;
+    text-align: center;
+    background-color: rgb(96, 192, 112);
+}
+
+.game {
+    grid-area: g;
+    background-color: rgb(79, 160, 94);
+}
+
+#frogs-left {
+    grid-area: f;
+    background-color: rgb(96, 192, 112);
+}
+
+#start-btn {
+    grid-area: s;
+    background-color: rgb(72, 138, 206);
+    border: 5px solid rgb(67, 129, 192)
+}
+
+#level {
+    grid-area: l;
+    background-color: rgb(96, 192, 112);
+}
