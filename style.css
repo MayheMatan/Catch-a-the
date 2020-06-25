@@ -20,23 +20,37 @@ body {
 }
 
 .game {
+    display: grid;
+    position: relative;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
     grid-area: g;
     background-color: rgb(79, 160, 94);
 }
 
 #frogs-left {
+    display: grid;
     grid-area: f;
+    justify-content: center;
+    align-content: center;
     background-color: rgb(96, 192, 112);
 }
 
 #start-btn {
+    display: grid;
     grid-area: s;
+    justify-content: center;
+    align-content: center;
     background-color: rgb(72, 138, 206);
     border: 5px solid rgb(67, 129, 192)
 }
 
 #level {
+    display: grid;
     grid-area: l;
+    justify-content: center;
+    align-content: center;
     background-color: rgb(96, 192, 112);
 }
 
@@ -44,4 +58,9 @@ body {
     display: grid;
     justify-content: center;
     align-content: center;
+}
+
+.frog {
+    cursor: pointer;
+    position: absolute;
 }
