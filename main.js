@@ -6,7 +6,6 @@ renderer.renderInit(froger.getTime(), froger.getLevel(), froger.getFrogsLeft(), 
 renderer.renderFrogs(froger.getFrogs());
 
 $(".game").on("click", ".frog", function() {
-    console.log($(this).data().id)
     froger.removeFrog($(this).data().id);
     renderer.renderFrogs(froger.getFrogs());
 });
@@ -16,14 +15,12 @@ const startRender = () => {
         if (froger.getIsGameOver()) {
             renderer.renderGameOver(froger.getTime(), froger.getLevel(), froger.getFrogsLeft(), froger.getTimerColor());
             clearInterval(renderTimerListener);
+        } else if (froger.getTime() <= 2) {
+            toggleTimer = setInterval(froger.toggleRed(), 1000);
         } else {
-            if (froger.getTime() <= 2) {
-                toggleTimer = setInterval(froger.toggleRed(), 1000);
-            } else {
-                clearInterval(toggleTimer);
-            }
-            renderer.renderInit(froger.getTime(), froger.getLevel(), froger.getFrogsLeft(), froger.getTimerColor());
+            clearInterval(toggleTimer);
         }
+        renderer.renderInit(froger.getTime(), froger.getLevel(), froger.getFrogsLeft(), froger.getTimerColor());
     }, 100);
 }
 
