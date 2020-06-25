@@ -1,11 +1,15 @@
 const Froger = () => {
     const _frogs = [];
     let _currentLevel = '-';
-    let _timer = '-'
+    let _timer = '-';
+    let _timerId = null;
+    let _frogsLeft = '-';
+    let _isGameOver = false;
 
     const getFrogs = () => _frogs;
     const getLevel = () => _currentLevel;
     const getTime = () => _timer;
+    const getFrogsLeft = () => _frogsLeft;
 
     const getRandomColor = () => {
         var letters = '0123456789ABCDEF';
@@ -16,18 +20,58 @@ const Froger = () => {
         return color;
     }
 
+    const addLevel = () => {
+        _currentLevel++;
+    }
+
+    const startGame = () => {
+        _isGameOver = false;
+        _currentLevel = 1;
+        _timer = 3;
+        addFrog();
+        let _timerId = setInterval(() => {
+            _timer--;
+            if (!_timer) {
+                stopGame();
+                clearInterval(_timerId);
+            }
+        }, 1000);
+        _frogsLeft = _frogs.length;
+    }
+
+    const stopGame = () => {
+        while (_frogs.length) {
+            _frogs.pop();
+        }
+
+        _currentLevel = '-';
+        _timer = '-';
+        _timerId = null;
+        _frogsLeft = '-';
+        _isGameOver = false;
+    }
+
     const addFrog = position => {
         const randomColor = getRandomColor();
         const randomXPosition = Math.floor(Math.random() * 1000);
         const randomYPosition = Math.floor(Math.random() * 300);
-        const position = `top: ${randomXPosition}px; left: ${randomYPosition}`;
+        const randomPosition = `top: ${randomXPosition}px; left: ${randomYPosition}`;
 
         const frog = {
             id: _frogs.length,
-            position: position,
+            position: randomPosition,
             color: randomColor,
         }
 
         _frogs.push(frog);
     }
+
+    const removeFrog = frogId => {
+        for (let frog in _frogs) {
+            if (_frogs[frog].id === frogId) {
+                _frogs.splice(frog, 1);
+            }
+        }
+    }
+    return { addFrog, removeFrog, getFrogs, getFrogsLeft, getLevel, getTime, startGame, stopGame, addLevel }
 }
