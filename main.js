@@ -12,19 +12,19 @@ $(".game").on("click", ".frog", function() {
 });
 
 const startRender = () => {
-    let renderTimerListener = setInterval(function() {
+    let renderTimerListener = setInterval(() => {
         if (froger.getIsGameOver()) {
             renderer.renderGameOver(froger.getTime(), froger.getLevel(), froger.getFrogsLeft(), froger.getTimerColor());
             clearInterval(renderTimerListener);
         } else {
-            if (froger.getTime() < 2 && froger.getTime() > 0) {
-                toggleTimer = setInterval(froger.toggleRed, 1000);
+            if (froger.getTime() <= 2) {
+                toggleTimer = setInterval(froger.toggleRed(), 1000);
             } else {
                 clearInterval(toggleTimer);
             }
             renderer.renderInit(froger.getTime(), froger.getLevel(), froger.getFrogsLeft(), froger.getTimerColor());
         }
-    }, 1);
+    }, 100);
 }
 
 $("#start-btn").on("click", function() {

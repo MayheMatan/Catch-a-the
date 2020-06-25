@@ -49,20 +49,20 @@ const Froger = () => {
     }
 
     const startGame = () => {
-        if (!_frogs.length) {
-            _isGameOver = false;
-            _currentLevel = 1;
-            _timer = 3;
-            addFrog();
-            _timerId = setInterval(function() {
-                _timer--;
-                if (!_timer) {
-                    stopGame();
-                    clearInterval(_timerId);
-                }
-            }, 1000);
-            _frogsLeft = _frogs.length;
-        } else return;
+        // if (!_frogs.length) {
+        _isGameOver = false;
+        _currentLevel = 1;
+        _timer = 3;
+        addFrog();
+        _timerId = setInterval(function() {
+            _timer--;
+            if (!_timer) {
+                stopGame();
+                clearInterval(_timerId);
+            }
+        }, 1000);
+        _frogsLeft = _frogs.length;
+        // } else return;
     }
 
     const stopGame = () => {
@@ -81,7 +81,7 @@ const Froger = () => {
         const randomColor = getRandomColor();
         const randomXPosition = Math.floor(Math.random() * 1000);
         const randomYPosition = Math.floor(Math.random() * 300);
-        const randomPosition = `top: ${randomXPosition}px; left: ${randomYPosition}px`;
+        const randomPosition = `top: ${randomYPosition}px; left: ${randomXPosition}px`;
         const frogSize = `${(randomYPosition / 3) + 5}px`;
         const frog = {
             id: (_frogs.length),
