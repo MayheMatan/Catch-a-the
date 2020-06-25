@@ -6,6 +6,7 @@ body {
     width: 100vw;
     height: 100vh;
     display: grid;
+    font-size: 1.3em;
     grid-template-areas: "h h h" "g g g" "f s l";
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 0.5fr 10fr 2fr
@@ -37,4 +38,10 @@ body {
 #level {
     grid-area: l;
     background-color: rgb(96, 192, 112);
+}
+
+#game-over {
+    display: grid;
+    justify-content: center;
+    align-content: center;
 }

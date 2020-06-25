@@ -51,16 +51,18 @@ const Froger = () => {
         _isGameOver = false;
     }
 
-    const addFrog = position => {
+    const addFrog = () => {
         const randomColor = getRandomColor();
+        const frogSize = `${randomYPosition / 3}px`;
         const randomXPosition = Math.floor(Math.random() * 1000);
         const randomYPosition = Math.floor(Math.random() * 300);
         const randomPosition = `top: ${randomXPosition}px; left: ${randomYPosition}`;
 
         const frog = {
             id: _frogs.length,
-            position: randomPosition,
             color: randomColor,
+            size: frogSize,
+            position: randomPosition,
         }
 
         _frogs.push(frog);
