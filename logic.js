@@ -49,20 +49,20 @@ const Froger = () => {
     }
 
     const startGame = () => {
-        // if (!_frogs.length) {
-        _isGameOver = false;
-        _currentLevel = 1;
-        _timer = 3;
-        addFrog();
-        _timerId = setInterval(function() {
-            _timer--;
-            if (!_timer) {
-                stopGame();
-                clearInterval(_timerId);
-            }
-        }, 1000);
-        _frogsLeft = _frogs.length;
-        // } else return;
+        if (!_frogs.length) {
+            _isGameOver = false;
+            _currentLevel = 1;
+            _timer = 3;
+            addFrog();
+            _timerId = setInterval(function() {
+                _timer--;
+                if (!_timer) {
+                    stopGame();
+                    clearInterval(_timerId);
+                }
+            }, 1000);
+            _frogsLeft = _frogs.length;
+        } else return;
     }
 
     const stopGame = () => {
