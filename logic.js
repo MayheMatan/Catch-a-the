@@ -72,17 +72,17 @@ const Froger = () => {
 
         _currentLevel = '-';
         _timer = '-';
-        _timerId = null;
         _frogsLeft = '-';
         _isGameOver = true;
+        _timerColor = 'black'
     }
 
     const addFrog = () => {
         const randomColor = getRandomColor();
-        const randomXPosition = Math.floor(Math.random() * 1000);
-        const randomYPosition = Math.floor(Math.random() * 300);
-        const randomPosition = `top: ${randomYPosition}px; left: ${randomXPosition}px`;
-        const frogSize = `${(randomYPosition / 3) + 5}px`;
+        const randomLeftPosition = Math.floor(Math.random() * 1000);
+        const randomTopPosition = Math.floor(Math.random() * 300);
+        const randomPosition = `top: ${randomTopPosition}px; left: ${randomLeftPosition}px`;
+        const frogSize = `${(randomTopPosition / 3) + 5}px`;
         const frog = {
             id: (_frogs.length),
             color: randomColor,
@@ -104,5 +104,5 @@ const Froger = () => {
             _timer++
         }
     }
-    return { addFrog, removeFrog, getFrogs, getFrogsLeft, getLevel, getTime, startGame, stopGame, addLevel, toggleRed, getTimerColor, levelUp, getIsGameOver, toggleRed }
+    return { addFrog, removeFrog, getFrogs, getFrogsLeft, getLevel, getTime, startGame, stopGame, getTimerColor, getIsGameOver, toggleRed }
 }

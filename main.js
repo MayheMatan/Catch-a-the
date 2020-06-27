@@ -21,7 +21,7 @@ const startRender = () => {
             clearInterval(toggleTimer);
         }
         renderer.renderInit(froger.getTime(), froger.getLevel(), froger.getFrogsLeft(), froger.getTimerColor());
-    }, 100);
+    }, 300);
 }
 
 $("#start-btn").on("click", function() {
