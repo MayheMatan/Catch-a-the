@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    font-size: 1.3em;
+    grid-template-areas: "h h h" "g g g" "f s l";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 0.5fr 10fr 2fr;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.header {
+    grid-area: h;
+    align-self: center;
+    text-align: center;
+    background-color: rgb(96, 192, 112);
+}
+
+.game {
+    display: grid;
+    position: relative;
+    align-content: center;
+    justify-content: center;
+    grid-area: g;
+    background-color: rgb(79, 160, 94);
+}
+
+#frogs-left {
+    display: grid;
+    grid-area: f;
+    justify-content: center;
+    align-content: center;
+    background-color: rgb(96, 192, 112);
+}
+
+#start-btn {
+    display: grid;
+    grid-area: s;
+    justify-content: center;
+    align-content: center;
+    background-color: rgb(72, 138, 206);
+    border: 5px solid rgb(67, 129, 192)
+}
+
+#level {
+    display: grid;
+    grid-area: l;
+    justify-content: center;
+    align-content: center;
+    background-color: rgb(96, 192, 112);
+}
+
+#game-over {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.frog {
+    cursor: pointer;
+    position: absolute;
+}
